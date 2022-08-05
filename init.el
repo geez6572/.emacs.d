@@ -1,5 +1,5 @@
 ;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
-;;; Commentary:
+;;; commentary:
 
 ;; This file bootstraps the configuration, which is divided into
 ;; a number of other files.
@@ -32,6 +32,7 @@
 
 
 ;; Bootstrap config
+
 
 
 (setq custom-file (locate-user-emacs-file "custom.el"))

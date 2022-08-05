@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+
 (defun sanityinc/locale-var-encoding (v)
   "Return the encoding portion of the locale string V, or nil if missing."
   (when v
