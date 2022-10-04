@@ -1,16 +1,21 @@
-;;; early-init.el --- Emacs 27+ pre-initialisation config
+;; 增加IO性能
+;; (setq read-process-output-max (* 10240 1024))
+;; (setq process-adaptive-read-buffering nil)
+(setq gc-cons-threshold most-positive-fixnum)
+(require 'cl-lib)
 
-;;; Commentary:
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
 
-;; Emacs 27+ loads this file before (normally) calling
-;; `package-initialize'.  We use this file to suppress that automatic
-;; behaviour so that startup is consistent across Emacs versions.
-
-;;; Code:
-
-(setq package-enable-at-startup nil)
-
-;; So we can detect this having been loaded
-(provide 'early-init)
-
-;;; early-init.el ends here
+(add-to-list 'load-path "~/.emacs.d/site-lisp/pkg/themes")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/pkg/ef-themes")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/pkg/dash.el")
+(require 'dash)
+(require 'doom-themes)
+;; (require 'ef-themes)
+;; (load-theme 'ef-night t t)
+(load-theme 'doom-one t t)
+;; (load-theme 'doom-one-light t t)
+;; (load-theme 'modus-vivendi t t)
+;; (load-theme 'ef-dark t t)

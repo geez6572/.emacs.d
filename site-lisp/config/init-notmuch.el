@@ -1,0 +1,5 @@
+(require 'notmuch)
+(provide 'init-notmuch)
+;; (add-hook 'notmuch-message-mode (lambda ()
+;; 				  (+evan/meow-add-motion-mode-alist 'notmuch-message-mode)
+;; 				  ))

@@ -1,0 +1,6 @@
+(require 'elfeed)
+(elfeed-add-feed "https://sachachua.com/blog/category/emacs/feed/")
+(elfeed-add-feed "https://emacs-china.org/posts.rss")
+(elfeed-add-feed "https://emacs-china.org/latest.rss")
+(elfeed-update)
+(provide 'init-elfeed)

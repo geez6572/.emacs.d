@@ -1,0 +1,158 @@
+* 快速-简单-多功能的配置
+Evan Emacs
+
+启动时间仅需 0.2 s
+
+** 安装教程
+
+#+begin_src shell
+  mv ~/.emacs.d ~/.emacs.d_bak
+
+  git clone https://github.com/evanmeek/.emacs.d
+
+  cd ~/.emacs.d
+
+  git submodule update --init --recursive
+#+end_src
+
+
+** 核心插件
+
+| 名称               | 作用                                                     |
+|--------------------+----------------------------------------------------------|
+| one-key            | 快速创建一个按键菜单，很方便的根据功能分类出多个按键菜单 |
+| lazy-load          | 使得我定义的按键对应的命令能够很方便的实现懒加载         |
+| meow               | 基于同时移动选区的模式编辑插件                           |
+| lsp-bridge         | lsp支持，补全支持                                        |
+| ivy+swiper+counsel | minibuffer的增强                                         |
+| dirvish            | 替代dired，实现Emacs作为文件管理器                       |
+| bongo              | 用来听歌                                                 |
+| telega             | Emacs中的telegram客户端                                  |
+| magit              | Emacs中的git图形化客户端                                 |
+| project            | Emacs中管理项目                                          |
+
+
+** 按键绑定说明
+
+分为以下几个类别:
+
+详情请于init-meow.el和init-key.el中查看
+
++ Leader
+  meow中的leader是SPC(空格键)，下面是按下SPC后再按以下键能做的事情
+  | Key | Description          | Comand                             |
+  |-----+----------------------+------------------------------------|
+  | t   | Toggle Menu          | _                                  |
+  | f   | File Menu            | _                                  |
+  | s   | Search Menu          | _                                  |
+  | b   | Buffer Menu          | _                                  |
+  | c   | Code Menu            | _                                  |
+  | p   | Project Menu         | _                                  |
+  | v   | Magit Menu           | _                                  |
+  | o   | Org Menu             | _                                  |
+  | w   | Window Menu          | _                                  |
+  | Tab | SortTab Menu         | _                                  |
+  | e   | EAF Menu             | _                                  |
+  | n   | Blog Menu            | _                                  |
+  | SPC | 在当前项目下查找文件 | project-find-file                  |
+  | -   | 跳转到下一个错误     | lsp-bridge-jump-to-next-diagnostic |
++ Toggle
+  用于开关某些功能
+  | Key | Description        | Command |
+  |-----+--------------------+---------|
+  | p   | 开关代理           | _       |
+  | l   | 开关显示行号       | _       |
+  | t   | 开关Telega         | _       |
+  | c   | 开关Crow           | _       |
+  | s   | 开关EShell         | _       |
+  | v   | 开关vterm          | _       |
+  | T   | 开关背景透明       | _       |
+  | f   | 开关树形文件管理器 | _       |
++ Window
+  | Key | Description            | Command |
+  |-----+------------------------+---------|
+  | l   | 聚焦至右边的窗口       | _       |
+  | h   | 聚焦至左边的窗口       | _       |
+  | k   | 聚焦至上面的窗口       | _       |
+  | j   | 聚焦至下面的窗口       | _       |
+  | L   | 与右边的窗口交换       | _       |
+  | H   | 与左边的窗口交换       | _       |
+  | K   | 与上面的窗口交换       | _       |
+  | J   | 与下面的窗口交换       | _       |
+  | s   | 纵向分屏               | _       |
+  | v   | 横向分屏               | _       |
+  | d   | 删除当前窗口           | _       |
+  | u   | 撤回至上一次窗口布局   | _       |
+  | C-h | 缩小窗口               | _       |
+  | m   | 仅保留当前窗口         | _       |
+  | C-k | 另一个窗口内容向上滚动 | _       |
+  | C-j | 另一个窗口内容向下滚动 | _       |
++ File
+  | Key | Description           |
+  |-----+-----------------------|
+  | s   | 保存Buffer            |
+  | d   | 打开Dirvish           |
+  | p   | 快速查看Emacs配置文件 |
+  | r   | 搜索最近打开过的文件  |
+  | f   | 选择文件打开            |
++ Search
+  | Key | Description                     |
+  |-----+---------------------------------|
+  | s   | 在Buffer中搜索内容              |
+  | S   | 在多个Buffer中搜索内容          |
+  | g   | 使用Ripgrep搜索当前目录中的内容 |
+  | d   | 使用Snails                      |
+  | r   | 使用Colorg                      |
+  | y   | 搜索剪贴板内的内容              |
++ Buffer
+  | Key | Description            |
+  |-----+------------------------|
+  | b   | 切换Buffer             |
+  | k   | 关闭Buffer             |
+  | T   | 切换Telega模式的Buffer |
+  | t   | 切换Telega聊天Buffer   |
+  | r   | 重载Buffer             |
++ Code
+  | Key | Description      |
+  |-----+------------------|
+  | f   | 格式化代码       |
+  | e   | 打开诊断Menu     |
+  | d   | 跳转到实现       |
+  | b   | 跳回上一个跳转点 |
+  | r   | 查找引用         |
+  | n   | 重命名           |
+  | i   | 查找实现         |
+  | s   | 显示文档         |
++ EAF
+  | Key | Description     |
+  |-----+-----------------|
+  | o   | 使用EAF打开一切 |
+  | b   | 打开EAF浏览器   |
++ Magit
+  | Key | Description            |
+  |-----+------------------------|
+  | v   | 打开Magit              |
+  | l   | 复制当前行的Git链接    |
++ Useful
+  | Key | Description                |
+  |-----+----------------------------|
+  | u   | 翻译选区内的内容           |
+  | c   | 开关Crow-mode              |
+  | m   | Bongo Menu                 |
+  | e   | 开启英语老师帮忙写英文模式 |
+  | p   | 复制Buffer的文件名         |
+  | S   | 提权并重新打开当前文件     |
+  | i   | Counsel Menu               |
++ Org
+  | Key | Description |
+  |-----+-------------|
+  | c   | Org-Capture |
++ Blog
+  | Key | Description    |
+  |-----+----------------|
+  | c   | 创建文章       |
+  | f   | 快速搜索文章   |
+  | p   | 预览当前Buffer |
+  | P   | 发布网站       |
+  | d   | 删除此文章     |
+
