@@ -7,6 +7,7 @@
 
 
 ;;; Install into separate package dirs for each Emacs version, to prevent bytecode incompatibility
+;;设置emacs插件安装的目录
 (setq package-user-dir
       (expand-file-name (format "elpa-%s.%s" emacs-major-version emacs-minor-version)
                         user-emacs-directory))
@@ -14,10 +15,14 @@
 
 
 ;;; Standard package repositories
-
 (add-to-list 'package-archives '( "melpa" . "https://melpa.org/packages/") t)
+;;设置elpa国内镜像
+(setq package-archives '(("gnu"   . "http://1.15.88.122/gnu/")
+                         ("melpa" . "http://1.15.88.122/melpa/")))
+
 ;; Official MELPA Mirror, in case necessary.
 ;;(add-to-list 'package-archives (cons "melpa-mirror" (concat proto "://www.mirrorservice.org/sites/melpa.org/packages/")) t)
+
 
 
 
@@ -65,6 +70,14 @@ locate PACKAGE."
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+
+;; Setup `use-package'
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 ;; package.el updates the saved version of package-selected-packages correctly only
 ;; after custom-file has been loaded, which is a bug. We work around this by adding
@@ -84,6 +97,7 @@ advice for `require-package', to which ARGS are passed."
         (add-to-list 'sanityinc/required-packages package)))))
 
 (advice-add 'require-package :around 'sanityinc/note-selected-package)
+
 
 (when (fboundp 'package--save-selected-packages)
   (require-package 'seq)

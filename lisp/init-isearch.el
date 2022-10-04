@@ -6,6 +6,8 @@
 (when (maybe-require-package 'anzu)
   (add-hook 'after-init-hook 'global-anzu-mode)
   (setq anzu-mode-lighter "")
+  ;;中括号的意思表示引用query-replace-regexp的快捷键
+  ;;下面句子的意思即将query-replace-regexp的快捷键作为anzu-query-replace-regexp的快捷键
   (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
   (global-set-key [remap query-replace] 'anzu-query-replace))
 

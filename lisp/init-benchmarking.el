@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+
+;;返回b的时间减去a的时间
 (defun sanityinc/time-subtract-millis (b a)
   (* 1000.0 (float-time (time-subtract b a))))
 

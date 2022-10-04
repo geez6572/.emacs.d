@@ -27,5 +27,6 @@
     (add-hook 'after-init-hook 'company-quickhelp-mode)))
 
 
+(setq  company-minimum-prefix-length 1)
 (provide 'init-company)
 ;;; init-company.el ends here
