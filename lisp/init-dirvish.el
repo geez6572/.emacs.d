@@ -1,13 +1,11 @@
 ;;replece emacs flile manage
 
-(use-package dirvish
-  :ensure t
-  :config
-  (dirvish-override-dired-mode)
-  )
+(require-package 'dirvish)
+
 
 (require 'dirvish-side)
 
+(dirvish-override-dired-mode)
 
 
 (provide 'init-dirvish)

@@ -25,6 +25,6 @@
 (when (maybe-require-package 'diff-hl)
   (with-eval-after-load 'dired
     (add-hook 'dired-mode-hook 'diff-hl-dired-mode)))
-
+fdsaf
 (provide 'init-dired)
 ;;; init-dired.el ends here

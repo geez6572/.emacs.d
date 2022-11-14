@@ -27,8 +27,10 @@
   (add-to-list 'default-frame-alist no-border)
   (add-to-list 'initial-frame-alist no-border))
 
-(push '(alpha-background . 80) default-frame-alist)
-
+;;(push '(alpha-background . 100) default-frame-alist)
+(setq default-frame-alist '((width . 90)
+                            (height . 50)
+                            (alpha-background . 80)))
 
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
@@ -50,7 +52,6 @@
 
 
 (require-package 'disable-mouse)
-
 
 
 (provide 'init-gui-frames)

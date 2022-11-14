@@ -22,8 +22,6 @@
 
 ;;; Code:
 
-(when *is-a-mac*
-  (maybe-require-package 'grab-mac-link))
 
 (maybe-require-package 'org-cliplink)
 
@@ -305,11 +303,10 @@ typical word processor."
 (when (and *is-a-mac* (file-directory-p "/Applications/org-clock-statusbar.app"))
   (add-hook 'org-clock-in-hook
             (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e"
-                                (concat "tell application \"org-clock-statusbar\" to clock in \"" org-clock-current-task "\""))))
+                                     (concat "tell application \"org-clock-statusbar\" to clock in \"" org-clock-current-task "\""))))
   (add-hook 'org-clock-out-hook
             (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e"
-                                "tell application \"org-clock-statusbar\" to clock out"))))
-
+                                     "tell application \"org-clock-statusbar\" to clock out"))))
 
 
 ;; TODO: warn about inconsistent items, e.g. TODO inside non-PROJECT
@@ -384,6 +381,33 @@ typical word processor."
       (sql . t)
       (sqlite . t)))))
 
+(add-hook 'org-mode-hook
+          (lambda ()
+            (require 'org-tempo)))
+(use-package org-bullets
+  :ensure t
+  :custom
+  (org-bullets-bullet-list '("☰" "☷" "☯" "☭"))
+  (org-ellipsis "⤵")
+  :hook (org-mode . org-bullets-mode))
+(add-to-list 'load-path "~/.emacs.d/lisp/preload/packages/org-bar/org-bars")
+(require 'org-bars)
+(add-hook 'org-mode-hook #'org-bars-mode)
+
+(setq-default prettify-symbols-alist '(("#+BEGIN_SRC" . "†")
+                                       ("#+END_SRC" . "†")
+                                       ("#+begin_src" . "†")
+                                       ("#+end_src" . "†")
+                                       (">=" . "≥")
+                                       ("=>" . "⇨")))
+(setq prettify-symbols-unprettify-at-point 'right-edge)
+(add-hook 'org-mode-hook 'prettify-symbols-mode)
+
+;;org-download
+(package-install 'org-download)
+(require 'org-download)
+;; Drag-and-drop to `dired`
+(add-hook 'dired-mode-hook 'org-download-enable)
 
 (provide 'init-org)
 ;;; init-org.el ends here

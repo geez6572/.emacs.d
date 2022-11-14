@@ -9,7 +9,7 @@
 (use-package all-the-icons-ivy-rich)
 (use-package doom-modeline)
 (use-package dashboard)
-
+(use-package neotree)
 
 
 (require `counsel)

@@ -72,5 +72,15 @@
 (require `init-cc-mode)
 
 
+(use-package go-translate
+  :ensure t
+  :config
+  (setq gts-translate-list '(("en" "zh")))
+  (setq gts-default-translator
+        (gts-translator
+         :picker (gts-prompt-picker)
+         :engines (list (gts-google-engine) (gts-google-rpc-engine))
+         :render (gts-buffer-render))))
+
 ;; 导出配置
 (provide `init-local)

@@ -73,7 +73,9 @@
 
 ;;使用meow编辑模式
 (require 'init-meow)
-
+;;(add-to-list 'load-path  "/home/cl/.emacs.d/not-elpa/evil")
+;;(require 'init-clipboard)
+;;(require 'init-evil)
 ;;将本机的环境变量导入到emacs
 (require 'init-exec-path) ;; Set up $PATH
 
@@ -96,6 +98,7 @@
 (require 'init-xterm)
 
 
+
 ;;emacs主题相关的配置
 (require 'init-themes)
 
@@ -103,13 +106,9 @@
 (require 'init-gui-frames)
 
 
-;;配置emacs中的文件系统
-;;替换emacs文件管理器
-(require 'init-dirvish)
 
 ;;增强emacs的查找功能
 (require 'init-isearch)
-
 
 
 (require 'init-grep)
@@ -149,9 +148,6 @@
 
 ;;窗口管理
 (require 'init-windows)
-
-
-;;vim模拟器evil插件
 
 
 (require 'init-sessions)
@@ -197,10 +193,10 @@
 (require 'init-j)
 (require 'init-toml)
 (require 'init-yaml)
-(require 'init-docker)
+;;(require 'init-docker)
 (require 'init-terraform)
 (require 'init-nix)
-
+(require 'init-anki)
 ;;(require `init-cc-mode)
 (maybe-require-package 'nginx-mode)
 
@@ -217,6 +213,9 @@
 (require 'init-folding)
 (require 'init-dash)
 
+;;配置emacs中的文件系统
+;;替换emacs文件管理器
+(require 'init-dirvish)
 
 ;;telega
 ;;(require 'init-tele)
@@ -247,8 +246,7 @@
 (require 'init-direnv)
 
 
-
-;; Allow access from emacsclient
+;; Allow access from emacsclien
 (add-hook 'after-init-hook
           (lambda ()
             (require 'server)
@@ -264,6 +262,7 @@
 
 ;; Allow users to provide an optional "init-local" containing personal settings
 (require 'init-local nil t)
+(require 'my-lsl-mode)
 
 (provide 'init)
 
