@@ -116,6 +116,11 @@ Otherwise the startup will be very slow. "
 (require 'init-company)
 (require 'init-yasnippet)
 
+
+(require 'init-meow)
+(require  'init-rime)
+
+
 (require 'init-bookmark)
 (require 'init-calendar)
 (require 'init-dashboard)
@@ -145,6 +150,7 @@ Otherwise the startup will be very slow. "
 (require 'init-projectile)
 (require 'init-lsp)
 (require 'init-ctags)
+(require 'init-common-lisp)
 
 (require 'init-prog)
 (require 'init-elisp)
@@ -156,6 +162,7 @@ Otherwise the startup will be very slow. "
 (require 'init-dart)
 (require 'init-elixir)
 (require 'init-web)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here
