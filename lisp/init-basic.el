@@ -257,6 +257,9 @@
            ("C-x K"   . delete-this-file)
            ("C-c C-l" . reload-init-file))
 
+;;cancel the keybindings of C-z
+(global-set-key (kbd "C-z") nil)
+
 (provide 'init-basic)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

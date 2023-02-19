@@ -1,3 +1,4 @@
+
 ;; init-ruby.el --- Initialize ruby configurations.	-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2010-2022 Vincent Zhang

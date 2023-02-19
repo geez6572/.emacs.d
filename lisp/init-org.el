@@ -216,6 +216,7 @@ prepended to the element after the #+HEADER: tag."
       (perl       . t)
       (python     . t)
       (ruby       . t)
+      (rust       . t)
       (js         . t)
       (css        . t)
       (sass       . t)
@@ -343,6 +344,17 @@ prepended to the element after the #+HEADER: tag."
         :init
         (when (featurep 'xwidget-internal)
           (setq org-roam-ui-browser-function #'xwidget-webkit-browse-url))))))
+
+;;define a key-bindings to open org directory quickly
+(global-set-key (kbd "C-z o")
+                (lambda () (interactive) (find-file "~/Document/note")))
+
+(set-register ?o (cons 'file "~/Document/note/常用算法.org"))
+
+(setq org-refile-targets '((org-agenda-files . (:maxlevel . 6))))
+
+(setq org-default-notes-file "~/org/test.org")
+
 
 (provide 'init-org)
 

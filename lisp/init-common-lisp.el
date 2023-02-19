@@ -12,7 +12,7 @@
 (setq inferior-lisp-program "sbcl")
 
 
-(add-auto-mode 'lisp-mode "\\.cl\\'")
+;;(add-auto-mode 'lisp-mode "\\.cl\\'")
 (add-hook 'lisp-mode-hook (lambda ()
                             (unless (featurep 'slime)
                              (require 'slime)

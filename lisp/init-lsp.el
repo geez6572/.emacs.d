@@ -94,6 +94,12 @@
 
                  ;; For clients
                  lsp-clients-python-library-directories '("/usr/local/" "/usr/"))
+     :custom
+     ;; 保存时使用什么进行检查，默认是 "check"，我更推荐 "clippy"
+     (lsp-rust-analyzer-cargo-watch-command "clippy")
+     (lsp-eldoc-render-all t)
+     (lsp-idle-delay 0.6)
+     (lsp-rust-analyzer-server-display-inlay-hints t)
      :config
      (with-no-warnings
        ;; Disable `lsp-mode' in `git-timemachine-mode'
@@ -204,6 +210,10 @@
                (face-background 'region nil t))))
      (my-lsp-ui-doc-set-border)
      (add-hook 'after-load-theme-hook #'my-lsp-ui-doc-set-border t)
+     :custom
+     (lsp-ui-peek-always-show t)
+     (lsp-ui-sideline-show-hover t)
+     (lsp-ui-doc-enable nil)
      :config
      (with-no-warnings
        ;; Display peek in child frame if possible
